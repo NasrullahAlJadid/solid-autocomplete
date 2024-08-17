@@ -1,0 +1,121 @@
+$inputHeight: 50px;
+
+.center {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auto-complete-container {
+  width: 80vw;
+  height: 40vh;
+  background-color: #373333;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #5f5d5d;
+  box-shadow: 0px 5px 10px -3px rgba(255, 255, 255, 0.2);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.icon-btn {
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.auto-complete-icons-container {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(0, -50%);
+  z-index: 10000;
+  width: 35px;
+  height: 70%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auto-complete-icons {
+  @extend .auto-complete-icons-container;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgb(97, 96, 95);
+  }
+  &:active {
+    background-color: #6b6969;
+    svg {
+      scale: 0.8;
+    }
+  }
+}
+
+.autocomplete-input {
+  background: transparent;
+  padding: 1rem 3.5rem 1rem 1rem;
+  border: 1px solid #646262;
+  width: 100%;
+  border-radius: 7px;
+  color: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out !important;
+  height: $inputHeight;
+
+  &:focus {
+    outline: 1px solid #646262;
+  }
+}
+
+#auto-complete-wrapper {
+  position: relative;
+}
+
+#auto-complete-dropdown {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  background: rgb(103, 102, 102);
+  padding: 1rem;
+  border-radius: 5px;
+  min-height: auto;
+  height: auto;
+  max-height: 400px;
+  z-index: 1000;
+
+  .active {
+    background: #605e5e;
+    border: 1px solid #948f8f;
+    border-radius: 5px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding: 10px 1rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      @extend .active;
+    }
+  }
+}
